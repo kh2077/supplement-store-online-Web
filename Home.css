@@ -1,0 +1,363 @@
+/* ------------------------------------- */
+/* 1. Global & Reset                     */
+/* ------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --primary-color: #5c3c8c; 
+    --secondary-color: #d9534f;
+    --text-color: #333;
+    --light-bg: #f5f5f5;
+    --white: #fff;
+}
+
+body {
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+/* ------------------------------------- */
+/* 2. Top Bar & Main Header              */
+/* ------------------------------------- */
+
+.top-bar {
+    background-color: var(--white);
+    border-bottom: 1px solid #eee;
+    font-size: 0.85em;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 8px 0;
+}
+
+.top-logo {
+    font-weight: bold;
+    color: #999;
+}
+
+.main-header {
+    background-color: var(--white);
+    padding: 20px 0;
+}
+
+.main-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo-img {
+    height: 40px; 
+    width: auto;
+}
+
+.search-bar-container {
+    display: flex;
+    flex-grow: 1;
+    max-width: 500px;
+    margin: 0 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.search-bar-container input {
+    border: none;
+    padding: 10px 15px;
+    flex-grow: 1;
+    font-size: 1em;
+    outline: none;
+}
+
+.search-btn-icon {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.user-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: var(--primary-color);
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.user-actions i {
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* ------------------------------------- */
+/* 3. Main Navigation (أقصى اليسار)      */
+/* ------------------------------------- */
+
+.main-nav {
+    background-color: var(--white);
+    border-top: 1px solid #eee;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.main-nav-content {
+    display: flex;
+    align-items: stretch;
+    /* تأكيد أن المحتوى يبدأ من أقصى اليسار */
+    justify-content: flex-start; 
+}
+
+.all-categories-dropdown {
+    position: relative;
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.categories-toggle-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    width: 100%;
+    padding: 15px;
+    border: none;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.categories-list {
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid #eee;
+    border-top: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 900;
+    padding: 5px 0;
+    display: none; 
+}
+
+.categories-list li a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 0.95em;
+}
+
+.categories-list li a:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+}
+
+.horizontal-links {
+    display: flex;
+    align-items: center;
+    padding: 0 200px; 
+}
+
+.horizontal-links li a {
+    padding: 0 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    line-height: 50px; 
+    display: block;
+}
+
+.horizontal-links li a:hover {
+    color: var(--primary-color);
+}
+
+
+/* ------------------------------------- */
+/* 4. Main Content Area & Banners        */
+/* ------------------------------------- */
+
+.main-content-area {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.side-links {
+    width: 250px;
+    flex-shrink: 0;
+    background-color: var(--white);
+    padding: 10px 0;
+    border-radius: 5px;
+}
+
+.side-links a {
+    display: block;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: var(--text-color);
+    border-bottom: 1px dotted #eee;
+}
+
+.side-links a:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+}
+
+.banners-section {
+    flex-grow: 1;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+    margin-bottom: 20px;
+}
+
+.main-banner {
+    flex: 2; 
+    min-width: 60%; 
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.main-banner img, .side-banner-item img {
+    width: 100%;
+    height: 100%; 
+    display: block;
+    object-fit: cover;
+}
+
+.side-banners {
+    flex: 1; 
+    min-width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.side-banner-item {
+    flex: 1; 
+    overflow: hidden;
+}
+
+/* ------------------------------------- */
+/* 5. Image Gallery (القسم الجديد)      */
+/* ------------------------------------- */
+
+.image-gallery-section {
+    width: 100%; /* تأخذ العرض الكامل أسفل البانرات */
+    margin-top: 30px;
+}
+
+.image-gallery-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.image-gallery-grid {
+    display: grid;
+    /* عرض 3 صور في الصف */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 20px;
+}
+
+.image-gallery-item {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* مهم لتأثير التكبير */
+}
+
+.image-gallery-item a {
+    display: block;
+    /* التأكد من أن الصورة تملأ الرابط */
+    line-height: 0; 
+}
+
+.image-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* تأثير التكبير */
+    transition: transform 0.5s ease;
+}
+
+.image-gallery-item img:hover {
+    /* تكبير الصورة بنسبة 5% عند التحويم */
+    transform: scale(1.05); 
+}
+
+/* ------------------------------------- */
+/* 6. Footer                             */
+/* ------------------------------------- */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 5%;
+    margin-top: 50px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #999;
+}
+
+
+/* ------------------------------------- */
+/* 7. Responsive Adjustments             */
+/* ------------------------------------- */
+
+@media (max-width: 992px) {
+    .main-content-area {
+        flex-direction: column;
+    }
+    .side-links {
+        width: 100%;
+    }
+    .banners-section {
+        flex-direction: column;
+    }
+    .main-banner, .side-banners {
+        min-width: 100%;
+    }
+}
+@media (max-width: 768px) {
+    .main-header-content {
+        flex-wrap: wrap;
+    }
+    .search-bar-container {
+        order: 3;
+        width: 100%;
+        margin: 10px 0;
+    }
+    .horizontal-links {
+        justify-content: center;
+    }
+}
