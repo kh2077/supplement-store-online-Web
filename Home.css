@@ -99,7 +99,31 @@ a {
     cursor: pointer;
     font-size: 1.1em;
 }
-
+/*kh*/
+.container{
+    background-color: white;
+    padding: 1px;
+}
+.supplement-list{
+    background-color : white;
+    width: 650px;
+    margin: 0 340px;
+    border : 100px black;
+}
+.supplement{
+    display : none;
+    z-index: 999px;
+} 
+.supplement button{
+    display: flex;
+    border : none;
+    margin : 20px;
+    background-color: white;
+}
+button:hover{
+    cursor : pointer;
+}
+/**/
 .user-actions button {
     background: none;
     border: none;
@@ -360,4 +384,5 @@ footer {
     .horizontal-links {
         justify-content: center;
     }
+
 }
