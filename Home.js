@@ -63,4 +63,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     updateCartDisplay(); // إعداد العرض الأولي للسلة
+
 });
+//kh
+function searchSupplement() {
+  let searchValue = document.querySelector(".input-field").value.toUpperCase();
+  let supplements = document.querySelectorAll(".supplement");
+  let supplementNames = document.getElementsByTagName("button");
+
+  for (let i = 0; i < supplementNames.length; i++){
+    if (supplementNames[i].innerText.toUpperCase().includes(searchValue) && searchValue !== "") {
+      supplements[i].style.display = "block";
+    } else {
+      supplements[i].style.display = "none"; 
+    }
+  }
+}
+//
